@@ -1,0 +1,345 @@
+/* Footer.css - Updated with Black + Purple + Dark Blue Theme */
+
+:root {
+  --black-base: #0a0a0a;
+  --dark-blue: #1e2a5e;
+  --purple-primary: #7c3aed;
+  --purple-light: #a855f7;
+  --purple-dark: #5b21b6;
+  --text-light: #e5e7eb;
+  --text-muted: #9ca3af;
+  --border-color: #2d2d3d;
+
+  /* Footer specific variables */
+  --footer-bg: rgba(10, 10, 10, 0.95);
+  --footer-card-bg: rgba(124, 58, 237, 0.05);
+  --footer-hover: var(--purple-primary);
+  --footer-border: var(--border-color);
+  --footer-text-muted: var(--text-muted);
+}
+
+.footer {
+  color: var(--text-light);
+  padding: 60px 0 0 0;
+  margin-top: 60px;
+  border-top: 2px solid var(--border-color);
+  position: relative;
+}
+
+/* Optional: Purple glow at the top of footer */
+.footer::before {
+  content: "";
+  position: absolute;
+  top: -2px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    var(--purple-primary),
+    var(--purple-light)
+  );
+}
+
+.footer-section {
+  margin-bottom: 30px;
+}
+
+.footer-title {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  background: linear-gradient(135deg, var(--text-light), var(--purple-light));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  position: relative;
+  padding-bottom: 12px;
+}
+
+.footer-title::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 50px;
+  height: 3px;
+  background: linear-gradient(
+    90deg,
+    var(--purple-primary),
+    var(--purple-light)
+  );
+  border-radius: 2px;
+  transition: width 0.3s ease;
+}
+
+.footer-section:hover .footer-title::after {
+  width: 80px;
+}
+
+.footer-text {
+  line-height: 1.6;
+  color: var(--text-muted);
+  margin-bottom: 20px;
+  font-size: 14px;
+}
+
+/* Social Links */
+.social-links {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.social-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 8px 18px;
+  background: var(--footer-card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 25px;
+  color: var(--text-light);
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.social-icon:hover {
+  background: linear-gradient(
+    135deg,
+    var(--purple-dark),
+    var(--purple-primary)
+  );
+  color: white;
+  transform: translateY(-3px);
+  border-color: var(--purple-primary);
+  box-shadow: 0 4px 12px rgba(124, 58, 237, 0.3);
+}
+
+/* Quick Links */
+.footer-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-links li {
+  margin-bottom: 12px;
+}
+
+.footer-links a {
+  color: var(--text-muted);
+  text-decoration: none;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+}
+
+.footer-links a::before {
+  content: "→";
+  opacity: 0;
+  transition: all 0.3s ease;
+  color: var(--purple-light);
+}
+
+.footer-links a:hover {
+  color: var(--purple-light);
+  transform: translateX(8px);
+}
+
+.footer-links a:hover::before {
+  opacity: 1;
+  transform: translateX(-3px);
+}
+
+/* Contact Info - No underline on email and phone */
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.contact-info p {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 0;
+  color: var(--text-muted);
+  font-size: 14px;
+  transition: all 0.3s ease;
+  padding: 5px 0;
+}
+
+.contact-info p:hover {
+  transform: translateX(5px);
+  color: var(--purple-light);
+}
+
+/* Contact icons */
+.contact-info svg {
+  color: var(--purple-primary);
+  font-size: 1.1rem;
+}
+
+/* Remove underline from email and phone links */
+.contact-info a {
+  color: var(--text-muted);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.contact-info a:hover {
+  color: var(--purple-light);
+  text-decoration: none;
+}
+
+/* Footer Bottom */
+.footer-bottom {
+  margin-top: 40px;
+  padding: 20px 0;
+  border-top: 1px solid var(--border-color);
+  background: rgba(10, 10, 10, 0.8);
+}
+
+.footer-bottom p {
+  margin: 0;
+  color: var(--text-muted);
+  font-size: 14px;
+}
+
+/* Container */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Grid System */
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 -15px;
+}
+
+.col-12 {
+  flex: 0 0 100%;
+  padding: 0 15px;
+}
+
+.col-md-6 {
+  flex: 0 0 50%;
+  max-width: 50%;
+}
+
+.col-md-12 {
+  flex: 0 0 100%;
+  max-width: 100%;
+}
+
+.col-lg-4 {
+  flex: 0 0 33.333333%;
+  max-width: 33.333333%;
+}
+
+/* Spacing */
+.g-4 {
+  gap: 1.5rem;
+}
+
+.mt-5 {
+  margin-top: 3rem;
+}
+
+.pt-3 {
+  padding-top: 1rem;
+}
+
+.mb-0 {
+  margin-bottom: 0;
+}
+
+.text-center {
+  text-align: center;
+}
+
+/* Responsive */
+@media (min-width: 768px) {
+  .col-md-6 {
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
+
+  .col-md-12 {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+}
+
+@media (min-width: 992px) {
+  .col-lg-4 {
+    flex: 0 0 33.333333%;
+    max-width: 33.333333%;
+  }
+}
+
+@media (max-width: 768px) {
+  .footer {
+    padding: 40px 0 0 0;
+    margin-top: 40px;
+  }
+
+  .footer-section {
+    text-align: center;
+  }
+
+  .footer-title::after {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .footer-section:hover .footer-title::after {
+    width: 60px;
+  }
+
+  .social-links {
+    justify-content: center;
+  }
+
+  .footer-links {
+    text-align: center;
+  }
+
+  .footer-links a {
+    justify-content: center;
+  }
+
+  .footer-links a::before {
+    display: none;
+  }
+
+  .contact-info p {
+    justify-content: center;
+  }
+
+  .footer-bottom {
+    text-align: center;
+  }
+}
+
+@media (max-width: 576px) {
+  .social-links {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .social-icon {
+    width: 100%;
+    max-width: 200px;
+    text-align: center;
+  }
+}

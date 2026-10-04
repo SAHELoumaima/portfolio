@@ -1,0 +1,351 @@
+/* AddProject.css - Updated with Dark Inputs and White Text */
+
+:root {
+  --black-base: #0A0A0A;
+  --dark-blue: #1E2A5E;
+  --purple-primary: #7C3AED;
+  --purple-light: #A855F7;
+  --purple-dark: #5B21B6;
+  --text-light: #E5E7EB;
+  --text-muted: #9CA3AF;
+  --border-color: #2D2D3D;
+  
+  /* Form specific variables - UPDATED for darker inputs */
+  --input-bg: #0F0F13;        /* Dark black/blue background */
+  --input-bg-dark: #1a1a2e;    /* Dark blue-black */
+  --card-bg: rgba(30, 42, 94, 0.3);
+}
+
+.add-project-container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--black-base);
+  padding: 20px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Optional: Purple glow background */
+.add-project-container::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(124, 58, 237, 0.08) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.add-project-card {
+  background: var(--card-bg);
+  backdrop-filter: blur(12px);
+  border-radius: 20px;
+  padding: 40px;
+  max-width: 600px;
+  width: 100%;
+  border: 1px solid var(--border-color);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  animation: slideUp 0.5s ease;
+  position: relative;
+  z-index: 1;
+}
+
+/* Top purple accent bar */
+.add-project-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--purple-primary), var(--purple-light));
+  border-radius: 20px 20px 0 0;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.form-title {
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 30px;
+  text-align: center;
+  background: linear-gradient(135deg, var(--text-light), var(--purple-light));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: var(--text-light);
+  font-size: 14px;
+  letter-spacing: 0.5px;
+}
+
+/* ========== INPUT STYLES - DARK BACKGROUND WITH WHITE TEXT ========== */
+.form-control {
+  width: 100%;
+  padding: 12px 15px;
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  font-size: 14px;
+  transition: all 0.3s ease;
+  font-family: inherit;
+  background: var(--input-bg) !important;
+  color: var(--text-light) !important;
+  font-weight: 400;
+}
+
+/* Alternative: Dark blue background */
+.form-control {
+  background: var(--dark-blue) !important;  /* Dark blue background */
+  color: white !important;
+}
+
+/* Or use purple-dark background */
+.form-control {
+  background: var(--purple-dark) !important;  /* Purple-dark background */
+  color: white !important;
+}
+
+/* Or use black background (recommended) */
+.form-control {
+  background: #0D0D0F !important;  /* Deep black-blue */
+  color: #FFFFFF !important;
+}
+
+.form-control:focus {
+  outline: none;
+  border-color: var(--purple-primary);
+  box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.2);
+  background: #0A0A0F !important;
+}
+
+.form-control::placeholder {
+  color: var(--text-muted);
+  opacity: 0.7;
+}
+
+/* White text for all input types */
+input.form-control,
+textarea.form-control,
+select.form-control {
+  color: white !important;
+}
+
+/* For date input */
+input[type="date"].form-control {
+  color: white !important;
+  background: #0D0D0F !important;
+}
+
+input[type="date"].form-control::-webkit-calendar-picker-indicator {
+  filter: invert(1);
+  cursor: pointer;
+}
+
+/* For number input */
+input[type="number"].form-control {
+  color: white !important;
+}
+
+textarea.form-control {
+  resize: vertical;
+  min-height: 100px;
+  background: #0D0D0F !important;
+  color: white !important;
+}
+
+.checkbox-group {
+  margin: 25px 0;
+}
+
+.checkbox-label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  font-weight: normal;
+}
+
+.checkbox-label input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+  accent-color: var(--purple-primary);
+}
+
+.checkbox-label span {
+  color: var(--text-light);
+  font-weight: 500;
+}
+
+.form-buttons {
+  display: flex;
+  gap: 15px;
+  margin-top: 30px;
+}
+
+.btn-cancel,
+.btn-submit {
+  flex: 1;
+  padding: 12px;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-cancel {
+  background: transparent;
+  color: var(--text-light);
+  border: 1px solid var(--border-color);
+}
+
+.btn-cancel:hover {
+  background: rgba(239, 68, 68, 0.15);
+  border-color: #EF4444;
+  color: #F87171;
+  transform: translateY(-2px);
+}
+
+.btn-submit {
+  background: linear-gradient(135deg, var(--purple-primary), var(--dark-blue));
+  color: white;
+  border: none;
+  box-shadow: 0 4px 12px rgba(124, 58, 237, 0.3);
+}
+
+.btn-submit:hover {
+  background: linear-gradient(135deg, var(--purple-light), var(--purple-primary));
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(124, 58, 237, 0.4);
+}
+
+.btn-cancel:active,
+.btn-submit:active {
+  transform: translateY(0);
+}
+
+/* ========== FILE INPUT STYLING ========== */
+input[type="file"] {
+  padding: 10px;
+  background: #0D0D0F !important;
+  color: var(--text-light);
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+}
+
+input[type="file"]::file-selector-button {
+  background: linear-gradient(135deg, var(--purple-dark), var(--purple-primary));
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-right: 10px;
+}
+
+input[type="file"]::file-selector-button:hover {
+  background: linear-gradient(135deg, var(--purple-primary), var(--purple-light));
+}
+
+/* ========== SELECT DROPDOWN STYLING ========== */
+select.form-control {
+  cursor: pointer;
+  background: #0D0D0F !important;
+  color: white !important;
+}
+
+select.form-control option {
+  background: #0D0D0F;
+  color: white;
+  padding: 10px;
+}
+
+/* For multi-select */
+select.form-control[multiple] option {
+  padding: 8px;
+  border-bottom: 1px solid var(--border-color);
+}
+
+select.form-control[multiple] option:checked {
+  background: var(--purple-primary) linear-gradient(0deg, var(--purple-primary), var(--purple-primary));
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .add-project-card {
+    padding: 25px;
+  }
+
+  .form-title {
+    font-size: 24px;
+  }
+
+  .form-buttons {
+    flex-direction: column;
+  }
+  
+  .btn-cancel,
+  .btn-submit {
+    padding: 10px;
+  }
+}
+
+/* Loading state */
+.loading-spinner {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-top-color: white;
+  border-radius: 50%;
+  animation: spin 0.6s linear infinite;
+  margin-right: 8px;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Error message styling */
+.error-message {
+  color: #F87171;
+  font-size: 12px;
+  margin-top: 5px;
+  display: block;
+}
+
+/* Success message styling */
+.success-message {
+  background: rgba(16, 185, 129, 0.15);
+  color: #34D399;
+  padding: 12px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  border-left: 3px solid #10B981;
+}

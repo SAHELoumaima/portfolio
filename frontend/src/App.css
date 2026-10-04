@@ -1,0 +1,49 @@
+:root {
+  --black-base: #0A0A0A;
+  --dark-blue: #1E2A5E;
+  --purple-primary: #7C3AED;
+  --purple-light: #A855F7;
+  --purple-dark: #5B21B6;
+  --text-light: #E5E7EB;
+  --text-muted: #9CA3AF;
+  --border-color: #2D2D3D;
+}
+
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: var(--black-base);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: var(--text-light);
+}
+
+.App-link {
+  color: var(--purple-light);
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

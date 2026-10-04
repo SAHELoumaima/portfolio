@@ -1,0 +1,261 @@
+:root {
+  --black-base: #0a0a0a;
+  --dark-blue: #1e2a5e;
+  --purple-primary: #7c3aed;
+  --purple-light: #a855f7;
+  --purple-dark: #5b21b6;
+  --text-light: #e5e7eb;
+  --text-muted: #9ca3af;
+  --border-color: #2d2d3d;
+
+  /* Navbar specific variables */
+  --bg-color: var(--black-base);
+  --nav-bg: rgba(10, 10, 10, 0.85);
+  --text-color: var(--text-light);
+  --link-color: var(--text-light);
+  --hover-bg: var(--purple-primary);
+}
+
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* REMOVE WHITE EDGES */
+html,
+body,
+#root {
+  width: 100%;
+  min-height: 100vh;
+  background: var(--bg-color);
+  overflow-x: auto;
+  overflow-y: auto;
+}
+
+/* MAIN PAGE */
+body {
+  background-color: var(--bg-color);
+}
+
+/* Navbar */
+.custom-navbar {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+  max-width: 1100px;
+  z-index: 9999;
+  background-color: var(--nav-bg);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 8px 20px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Navbar hover effect */
+.custom-navbar:hover {
+  border-color: var(--purple-primary);
+  box-shadow: 0 4px 25px rgba(124, 58, 237, 0.2);
+}
+
+/* Logo */
+.logo {
+  background: linear-gradient(135deg, var(--text-light), var(--purple-light));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent !important;
+  font-weight: bold;
+  font-size: 1.3rem;
+  transition: all 0.3s ease;
+}
+
+.logo:hover {
+  background: linear-gradient(
+    135deg,
+    var(--purple-light),
+    var(--purple-primary)
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent !important;
+}
+
+/* Logout button - Fixed hover color to purple-dark */
+.logout-btn {
+  background: transparent !important;
+  border: 1px solid var(--border-color) !important;  /* Changed from 'none' to border-color */
+  border-radius: 8px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.3s ease;
+  color: var(--text-light) !important;
+  padding: 8px 16px;  /* Added padding for better appearance */
+}
+
+/* Hover effect with purple-dark color */
+.logout-btn:hover {
+  background: var(--purple-dark) !important;
+  border-color: var(--purple-primary) !important;
+  color: white !important;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(91, 33, 182, 0.3);
+}
+
+/* Optional: Active/click effect */
+.logout-btn:active {
+  transform: translateY(0);
+}
+/* Links */
+.nav-link {
+  color: var(--text-light) !important;
+  margin-left: 10px;
+  padding: 8px 16px;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  font-weight: 500;
+  position: relative;
+}
+
+/* .nav-link,
+.nav-link:visited,
+.nav-link:active {
+  color: var(--text-light) !important;
+} */
+
+/* Underline effect on hover */
+.nav-link::after {
+  content: "";
+  position: absolute;
+  bottom: 2px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    var(--purple-primary),
+    var(--purple-light)
+  );
+  transition: width 0.3s ease;
+  border-radius: 2px;
+}
+
+.nav-link:hover::after {
+  width: 70%;
+}
+
+/* Hover */
+.nav-link:hover {
+  background-color: rgba(124, 58, 237, 0.15);
+  color: var(--purple-light) !important;
+}
+
+/* Active */
+.nav-link.active {
+  background: linear-gradient(
+    135deg,
+    var(--purple-dark),
+    var(--purple-primary)
+  );
+  color: white !important;
+  box-shadow: 0 4px 12px rgba(124, 58, 237, 0.3);
+}
+
+.nav-link.active::after {
+  display: none;
+}
+
+/* Hamburger button */
+.navbar-toggler {
+  border: 1px solid var(--border-color) !important;
+  background: rgba(124, 58, 237, 0.1);
+  transition: all 0.3s ease;
+}
+
+.navbar-toggler:hover {
+  border-color: var(--purple-primary) !important;
+  background: rgba(124, 58, 237, 0.2);
+}
+
+.navbar-toggler:focus {
+  box-shadow: 0 0 0 2px var(--purple-primary) !important;
+  outline: none;
+}
+
+/* Hamburger icon */
+.navbar-toggler-icon {
+  filter: invert(1) brightness(100%);
+  opacity: 0.8;
+}
+
+/* Mobile menu background */
+@media (max-width: 991px) {
+  .navbar-collapse {
+    background: rgba(10, 10, 10, 0.95);
+    backdrop-filter: blur(12px);
+    border-radius: 12px;
+    padding: 15px;
+    margin-top: 10px;
+    border: 1px solid var(--border-color);
+  }
+
+  .nav-link {
+    margin: 5px 0;
+    text-align: center;
+  }
+
+  .nav-link::after {
+    bottom: 0;
+  }
+
+  .nav-link.active {
+    background: linear-gradient(
+      135deg,
+      var(--purple-dark),
+      var(--purple-primary)
+    );
+  }
+}
+
+/* Animation for mobile menu */
+.navbar-collapse.show {
+  animation: fadeInDown 0.3s ease forwards;
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Scroll effect */
+.custom-navbar.scrolled {
+  top: 0;
+  border-radius: 0 0 12px 12px;
+  background: rgba(10, 10, 10, 0.95);
+  box-shadow: 0 4px 25px rgba(0, 0, 0, 0.4);
+}
+
+/* Close icon for mobile (if you use custom close) */
+.close-icon {
+  color: var(--text-light);
+  font-size: 1.2rem;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.close-icon:hover {
+  color: var(--purple-light);
+}

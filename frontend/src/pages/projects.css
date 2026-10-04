@@ -1,0 +1,467 @@
+:root {
+  --black-base: #1a1238;
+  --dark-blue: #1e2a5e;
+  --purple-primary: #7c3aed;
+  --purple-light: #a855f7;
+  --purple-dark: #5b21b6;
+  --text-light: #e5e7eb;
+  --text-muted: #9ca3af;
+  --border-color: #2d2d3d;
+}
+
+.contact-page {
+  color: var(--text-light);
+  background: var(--black-base);
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
+  padding: 40px;
+  background: var(--black-base);
+  min-height: calc(100vh - 200px);
+  flex: 1;
+}
+
+.projects-page-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: var(--black-base);
+}
+
+.no-projects {
+  text-align: center;
+  padding: 60px;
+  color: var(--text-muted);
+  font-size: 1.1rem;
+  min-height: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+}
+
+h1 {
+  text-align: center;
+  background: linear-gradient(135deg, var(--text-light), var(--purple-light));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  margin-bottom: 30px;
+  font-size: 2.5rem;
+}
+
+.project-card {
+  background: linear-gradient(
+    135deg,
+    rgba(30, 42, 94, 0.3),
+    rgba(10, 10, 10, 0.8)
+  );
+  backdrop-filter: blur(10px);
+  border-radius: 18px;
+  overflow: hidden;
+  text-decoration: none;
+  color: var(--text-light);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  transition: all 0.35s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 12px;
+  position: relative;
+  border: 1px solid var(--border-color);
+}
+
+.project-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(
+    90deg,
+    var(--purple-primary),
+    var(--purple-light)
+  );
+  transform: scaleX(0);
+  transition: transform 0.35s ease;
+}
+
+.project-card:hover::before {
+  transform: scaleX(1);
+}
+
+.project-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 45px rgba(124, 58, 237, 0.2);
+  border-color: var(--purple-primary);
+}
+
+.project-card:hover img {
+  transform: scale(1.05);
+}
+
+.project-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.project-card h3 {
+  font-size: 18px;
+  font-weight: 600;
+  margin: 14px 16px 6px;
+  color: var(--text-light);
+  text-align: left;
+  width: 100%;
+}
+
+.project-card p {
+  font-size: 14px;
+  margin: 0 0 14px 0;
+  padding: 0 14px;
+  color: var(--text-muted);
+  line-height: 1.5;
+  text-align: left;
+  width: 100%;
+}
+
+.project-card button {
+  background: linear-gradient(135deg, var(--purple-primary), var(--dark-blue));
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 12px;
+  margin-bottom: 20px;
+  font-weight: 600;
+  font-size: 14px;
+  box-shadow: 0 4px 12px rgba(124, 58, 237, 0.2);
+}
+
+.project-card button:hover {
+  background: linear-gradient(
+    135deg,
+    var(--purple-light),
+    var(--purple-primary)
+  );
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(124, 58, 237, 0.3);
+}
+
+.project-tag {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: linear-gradient(
+    135deg,
+    var(--purple-primary),
+    var(--purple-dark)
+  );
+  color: white;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 600;
+  z-index: 1;
+}
+
+.loading-projects {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 400px;
+  background: var(--black-base);
+  flex: 1;
+}
+
+.loading-spinner {
+  width: 50px;
+  height: 50px;
+  border: 3px solid var(--border-color);
+  border-top-color: var(--purple-primary);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (max-width: 768px) {
+  .projects-grid {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    min-height: calc(100vh - 150px);
+  }
+
+  h1 {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+  }
+
+  .project-card img {
+    height: 160px;
+  }
+
+  .project-card h3 {
+    font-size: 16px;
+    margin: 10px 12px 4px;
+  }
+
+  .project-card p {
+    font-size: 13px;
+    padding: 0 12px;
+  }
+
+  .project-card button {
+    padding: 8px 16px;
+    font-size: 13px;
+    margin-bottom: 16px;
+  }
+
+  .no-projects {
+    min-height: 300px;
+    padding: 40px;
+  }
+}
+
+@media (max-width: 480px) {
+  .projects-grid {
+    grid-template-columns: 1fr;
+    padding: 15px;
+    gap: 15px;
+    min-height: calc(100vh - 120px);
+  }
+
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  .project-card img {
+    height: 140px;
+  }
+
+  .no-projects {
+    min-height: 250px;
+    padding: 30px;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Page entrance animation */
+.projects-page-container {
+  animation: fadeIn 0.8s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Staggered card animations */
+.project-card {
+  opacity: 0;
+  transform: translateY(30px) scale(0.95);
+  animation: cardAppear 0.6s ease forwards;
+}
+
+.project-card:nth-child(1) {
+  animation-delay: 0.1s;
+}
+.project-card:nth-child(2) {
+  animation-delay: 0.2s;
+}
+.project-card:nth-child(3) {
+  animation-delay: 0.3s;
+}
+.project-card:nth-child(4) {
+  animation-delay: 0.4s;
+}
+.project-card:nth-child(5) {
+  animation-delay: 0.5s;
+}
+.project-card:nth-child(6) {
+  animation-delay: 0.6s;
+}
+
+@keyframes cardAppear {
+  from {
+    opacity: 0;
+    transform: translateY(30px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Enhanced card hover effects */
+.project-card {
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.project-card:hover {
+  transform: translateY(-10px) scale(1.02);
+}
+
+/* Image zoom with smooth transition */
+.project-card img {
+  transition: transform 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.project-card:hover img {
+  transform: scale(1.08);
+}
+
+/* Glow effect on hover */
+.project-card::after {
+  content: "";
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  border-radius: 18px;
+  background: linear-gradient(
+    45deg,
+    var(--purple-primary),
+    var(--purple-light),
+    var(--purple-primary)
+  );
+  background-size: 300% 300%;
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.project-card:hover::after {
+  opacity: 1;
+  animation: gradientShift 3s ease infinite;
+}
+
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Button pulse on hover */
+.project-card button {
+  position: relative;
+  overflow: hidden;
+}
+
+.project-card button::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+  transform: translate(-50%, -50%);
+  transition:
+    width 0.6s,
+    height 0.6s;
+}
+
+.project-card button:hover::before {
+  width: 300px;
+  height: 300px;
+}
+
+/* Tag animation */
+.project-tag {
+  animation: tagPulse 2s ease-in-out infinite;
+}
+
+@keyframes tagPulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+/* Loading animation enhancement */
+.loading-spinner {
+  animation: spin 1s linear infinite;
+}
+
+.loading-spinner::before {
+  content: "";
+  position: absolute;
+  top: -5px;
+  left: -5px;
+  right: -5px;
+  bottom: -5px;
+  border-radius: 50%;
+  border: 3px solid transparent;
+  border-top-color: var(--purple-light);
+  animation: spin 0.8s linear infinite reverse;
+}
+
+/* Grid background animation */
+.projects-grid {
+  position: relative;
+}
+
+.projects-grid::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background:
+    linear-gradient(rgba(124, 58, 237, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(124, 58, 237, 0.03) 1px, transparent 1px);
+  background-size: 40px 40px;
+  pointer-events: none;
+  animation: gridMove 20s linear infinite;
+}
+
+@keyframes gridMove {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(40px, 40px);
+  }
+}

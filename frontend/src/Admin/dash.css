@@ -1,0 +1,280 @@
+/* ========== DASHBOARD CSS - ALL BLACK BACKGROUND ========== */
+:root {
+  --black-base: #0A0A0A;
+  --dark-blue: #1E2A5E;
+  --purple-primary: #7C3AED;
+  --purple-light: #A855F7;
+  --purple-dark: #5B21B6;
+  --text-light: #E5E7EB;
+  --text-muted: #9CA3AF;
+  --border-color: #2D2D3D;
+}
+
+/* PAGE */
+.dashboard {
+  padding: 30px;
+  background: var(--black-base);
+  min-height: 100vh;
+}
+
+.container {
+  color: var(--text-light);
+  background: transparent;
+}
+
+/* HEADER */
+.dashboard-header {
+  max-width: 1200px;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+  margin-top: 25px;
+  padding: 20px 0;
+  border-bottom: 2px solid var(--purple-primary);
+  background: transparent;
+}
+
+.nav-link {
+  color: var(--text-light);
+  font-size: larger;
+  text-decoration: none;
+  transition: color 0.3s ease;
+  font-weight: 500;
+  background: transparent;
+}
+
+.nav-link:hover {
+  color: var(--purple-light);
+}
+
+.dashboard-header h2 {
+  margin: 0;
+  color: var(--text-light);
+  font-weight: bold;
+  background: linear-gradient(135deg, var(--purple-light), var(--dark-blue));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  font-size: 1.8rem;
+}
+
+/* ADD BUTTON */
+.project-btn {
+  background: linear-gradient(135deg, var(--purple-primary), var(--dark-blue));
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  box-shadow: 0 4px 6px rgba(124, 58, 237, 0.2);
+}
+
+.project-btn:hover {
+  background: linear-gradient(135deg, var(--purple-light), var(--purple-primary));
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(124, 58, 237, 0.3);
+}
+
+/* TABLE CONTAINER */
+.table-container {
+  width: 100%;
+  overflow-x: auto;
+  background: var(--black-base);
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  margin: 2rem 0;
+  border: 1px solid var(--border-color);
+}
+
+/* TABLE */
+.project-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  font-family: inherit;
+  font-size: 0.95rem;
+  min-width: 700px;
+  background: var(--black-base);
+}
+
+/* Table Header */
+.project-table thead tr {
+  background: linear-gradient(135deg, var(--dark-blue), var(--purple-dark));
+}
+
+.project-table th {
+  padding: 18px 16px;
+  text-align: left;
+  font-weight: 600;
+  font-size: 0.85rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--text-light);
+  border-bottom: 2px solid var(--purple-primary);
+  background: transparent;
+}
+
+.project-table th:first-child {
+  border-top-left-radius: 16px;
+}
+
+.project-table th:last-child {
+  border-top-right-radius: 16px;
+}
+
+/* Table Body */
+.project-table td {
+  padding: 14px 12px;
+  text-align: left;
+  border-bottom: 1px solid var(--border-color);
+  color: var(--text-muted);
+  background-color: var(--black-base);
+}
+
+.project-table tbody tr:hover td {
+  background-color: rgba(124, 58, 237, 0.08);
+  color: var(--text-light);
+  transition: all 0.3s ease;
+}
+
+/* VIEW BUTTON */
+.view-action {
+  margin-bottom: 0;
+}
+
+.view-btn {
+  padding: 8px 16px;
+  background: linear-gradient(135deg, var(--dark-blue), var(--purple-dark));
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.view-btn:hover {
+  background: linear-gradient(135deg, var(--purple-primary), var(--purple-light));
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(124, 58, 237, 0.3);
+}
+
+/* EDIT + DELETE ACTIONS */
+.edit-delete-actions {
+  display: flex;
+  gap: 8px;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.edit-btn {
+  background: linear-gradient(135deg, #059669, #10B981);
+  color: white;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.edit-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(16, 185, 129, 0.3);
+  filter: brightness(1.05);
+}
+
+.delete-btn {
+  background: linear-gradient(135deg, #DC2626, #EF4444);
+  color: white;
+  border: none;
+  padding: 6px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.delete-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(239, 68, 68, 0.3);
+  filter: brightness(1.05);
+}
+
+/* ALL BUTTONS HOVER */
+.view-btn:hover,
+.edit-btn:hover,
+.delete-btn:hover {
+  opacity: 1;
+}
+
+/* SCROLLBAR STYLING */
+.table-container::-webkit-scrollbar {
+  height: 8px;
+}
+
+.table-container::-webkit-scrollbar-track {
+  background: var(--black-base);
+  border-radius: 10px;
+}
+
+.table-container::-webkit-scrollbar-thumb {
+  background: var(--purple-primary);
+  border-radius: 10px;
+}
+
+.table-container::-webkit-scrollbar-thumb:hover {
+  background: var(--purple-light);
+}
+
+/* ========== RESPONSIVE ========== */
+@media (max-width: 768px) {
+  .dashboard {
+    padding: 20px;
+  }
+  
+  .dashboard-header {
+    flex-direction: column;
+    gap: 15px;
+    text-align: center;
+  }
+  
+  .project-table th,
+  .project-table td {
+    padding: 10px 8px;
+    font-size: 0.85rem;
+  }
+  
+  .edit-btn,
+  .delete-btn,
+  .view-btn {
+    padding: 4px 10px;
+    font-size: 0.75rem;
+  }
+}
+
+/* Empty state styling */
+.no-data {
+  text-align: center;
+  padding: 48px;
+  color: var(--text-muted);
+  background: var(--black-base);
+}
+
+/* Loading animation */
+@keyframes shimmer {
+  0% { opacity: 0.5; }
+  50% { opacity: 1; }
+  100% { opacity: 0.5; }
+}
+
+.loading-row td {
+  animation: shimmer 1.5s infinite;
+  background: var(--black-base);
+}

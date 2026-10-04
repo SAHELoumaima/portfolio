@@ -1,0 +1,465 @@
+:root {
+  --black-base: #0a0a0a;
+  --dark-blue: #1e2a5e;
+  --purple-primary: #7c3aed;
+  --purple-light: #a855f7;
+  --purple-dark: #5b21b6;
+  --text-light: #e5e7eb;
+  --text-muted: #9ca3af;
+  --border-color: #2d2d3d;
+}
+
+/* Apply background to the whole screen */
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--black-base);
+  overflow-x: hidden;
+}
+
+.hero-container {
+  min-height: 100vh;
+  width: 100%;
+  background: linear-gradient(
+    135deg,
+    var(--black-base) 0%,
+    var(--dark-blue) 100%
+  );
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Optional: Add a subtle purple glow effect */
+.hero-container::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  right: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(
+    circle,
+    rgba(124, 58, 237, 0.08) 0%,
+    transparent 70%
+  );
+  pointer-events: none;
+}
+
+.hero-content {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 1200px;
+  padding: 0 40px;
+  position: relative;
+  z-index: 1;
+}
+
+/* TEXT SECTION */
+.hero-text-section {
+  flex: 1;
+  color: var(--text-light);
+  font-weight: bold;
+}
+
+.hero-title {
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  font-weight: bold;
+  line-height: 1.1;
+  margin: 0;
+  background: linear-gradient(135deg, var(--text-light), var(--purple-light));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.highlight {
+  text-decoration: underline;
+  font-size: 2rem;
+  font-weight: bold;
+  text-underline-offset: 10px;
+  text-decoration-thickness: 3px;
+  text-decoration-color: var(--purple-primary);
+  color: var(--purple-light);
+}
+
+.hero-subtitle {
+  font-size: 1.2rem;
+  letter-spacing: 4px;
+  margin-top: 20px;
+  opacity: 0.9;
+  text-transform: uppercase;
+  color: var(--purple-light);
+}
+
+.hero-description {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  max-width: 500px;
+  margin: 25px 0;
+  opacity: 0.85;
+  color: var(--text-muted);
+}
+
+/* BUTTONS */
+.hero-buttons {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 40px;
+}
+
+.btn-primary,
+.btn-secondary {
+  padding: 12px 30px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 1rem;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--purple-primary), var(--dark-blue));
+  color: white;
+  border: none;
+  box-shadow: 0 4px 15px rgba(124, 58, 237, 0.3);
+}
+
+.btn-primary:hover {
+  background: linear-gradient(
+    135deg,
+    var(--purple-light),
+    var(--purple-primary)
+  );
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(124, 58, 237, 0.4);
+}
+
+.btn-secondary {
+  background-color: transparent;
+  color: var(--text-light);
+  border: 1px solid var(--purple-primary);
+}
+
+.btn-secondary a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.btn-secondary:hover {
+  background-color: rgba(124, 58, 237, 0.1);
+  border-color: var(--purple-light);
+  color: var(--purple-light);
+  transform: translateY(-2px);
+}
+
+/* SOCIALS */
+.hero-socials {
+  display: flex;
+  gap: 25px;
+}
+
+.hero-socials a {
+  font-size: 1.5rem;
+  color: var(--text-muted);
+  transition: all 0.3s ease;
+}
+
+.hero-socials a:hover {
+  transform: translateY(-5px);
+  color: var(--purple-light);
+}
+
+/* IMAGE SECTION */
+.hero-image-section {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.image-wrapper {
+  animation: float 6s ease-in-out infinite;
+  position: relative;
+}
+
+/* Optional: Add a purple glow behind the image */
+.image-wrapper::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 380px;
+  height: 380px;
+  background: radial-gradient(circle, rgba(124, 58, 237, 0.2), transparent 70%);
+  border-radius: 50%;
+  z-index: -1;
+}
+
+.image-wrapper img {
+  width: 350px;
+  height: 350px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--purple-primary);
+  box-shadow: 0 0 30px rgba(124, 58, 237, 0.3);
+  transition: all 0.3s ease;
+}
+
+.image-wrapper img:hover {
+  transform: scale(1.02);
+  box-shadow: 0 0 40px rgba(124, 58, 237, 0.5);
+}
+
+/* ANIMATION */
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+/* MOBILE RESPONSIVE */
+@media (max-width: 900px) {
+  .hero-content {
+    flex-direction: column-reverse;
+    text-align: center;
+  }
+
+  .hero-text-section {
+    margin-top: 40px;
+  }
+
+  .hero-buttons,
+  .hero-socials {
+    justify-content: center;
+  }
+
+  .hero-description {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .image-wrapper img {
+    width: 250px;
+    height: 250px;
+  }
+
+  .image-wrapper::before {
+    width: 280px;
+    height: 280px;
+  }
+}
+
+/* Scroll-triggered animations */
+.hero-text-section {
+  opacity: 0;
+  transform: translateX(-50px);
+  animation: slideInLeft 1s ease forwards;
+}
+
+.hero-image-section {
+  opacity: 0;
+  transform: translateX(50px);
+  animation: slideInRight 1s ease forwards 0.3s;
+}
+
+.hero-title {
+  opacity: 0;
+  animation: fadeInUp 0.8s ease forwards 0.5s;
+}
+
+.hero-subtitle {
+  opacity: 0;
+  animation: fadeInUp 0.8s ease forwards 0.7s;
+}
+
+.hero-description {
+  opacity: 0;
+  animation: fadeInUp 0.8s ease forwards 0.9s;
+}
+
+.hero-buttons {
+  opacity: 0;
+  animation: fadeInUp 0.8s ease forwards 1.1s;
+}
+
+.hero-socials {
+  opacity: 0;
+  animation: fadeInUp 0.8s ease forwards 1.3s;
+}
+
+/* New animations */
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Enhanced button animations */
+.btn-primary,
+.btn-secondary {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-primary::after,
+.btn-secondary::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
+  transform: translate(-50%, -50%);
+  transition:
+    width 0.6s,
+    height 0.6s;
+}
+
+.btn-primary:active::after,
+.btn-secondary:active::after {
+  width: 300px;
+  height: 300px;
+}
+
+/* Social icons animation */
+.hero-socials a {
+  position: relative;
+  display: inline-block;
+}
+
+.hero-socials a::before {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--purple-light);
+  transition: width 0.3s ease;
+}
+
+.hero-socials a:hover::before {
+  width: 100%;
+}
+
+/* Glow pulse animation for image */
+.image-wrapper {
+  animation: float 6s ease-in-out infinite;
+}
+
+.image-wrapper::after {
+  content: "";
+  position: absolute;
+  top: -20px;
+  left: -20px;
+  right: -20px;
+  bottom: -20px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(124, 58, 237, 0.1), transparent 70%);
+  animation: pulseGlow 3s ease-in-out infinite;
+  z-index: -1;
+}
+
+@keyframes pulseGlow {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 0.5;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 1;
+  }
+}
+
+/* Typing cursor animation for subtitle */
+.hero-subtitle {
+  display: inline-block;
+  border-right: 2px solid var(--purple-light);
+  padding-right: 5px;
+  animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+  0%,
+  100% {
+    border-color: var(--purple-light);
+  }
+  50% {
+    border-color: transparent;
+  }
+}
+
+/* Particle background effect */
+.hero-container {
+  position: relative;
+  overflow: hidden;
+}
+
+.particle {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: var(--purple-primary);
+  border-radius: 50%;
+  opacity: 0;
+  animation: floatParticle 15s infinite;
+}
+
+@keyframes floatParticle {
+  0% {
+    opacity: 0;
+    transform: translateY(100vh) scale(0);
+  }
+  10% {
+    opacity: 0.3;
+  }
+  90% {
+    opacity: 0.3;
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-100vh) scale(1);
+  }
+}
