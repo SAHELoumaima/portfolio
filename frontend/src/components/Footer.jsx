@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 import { FiGithub, FiPhone } from "react-icons/fi";
 import { FaLinkedinIn } from "react-icons/fa";
 import { MdOutlineEmail, MdLocationOn } from "react-icons/md";
-import { FaDiscord } from "react-icons/fa6";
 import API from "../api/axios";
 import "./Footer.css";
 
